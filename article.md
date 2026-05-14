@@ -11,19 +11,19 @@ platforms --- supporting analytics, machine learning, and real-time...
 ### Maximizing Data Lake Efficiency with AWS Resource Manager (Architectural Design)
 Enterprise data lakes have matured from static repositories into living platforms --- supporting analytics, machine learning, and real-time decision-making. But as these systems grow in complexity, so does the challenge of managing them.
 
-That's where **AWS Resource Manager** comes in. Acting as an orchestrator, it controls who can access what, how much compute they can use, and how workflows are prioritized across business functions. In this article, we'll explore how AWS Resource Manager fits into a scalable, secure, and efficient data lake architecture --- with dedicated support for both analytics and data science teams.
+That's where AWS Resource Manager comes in. Acting as an orchestrator, it controls who can access what, how much compute they can use, and how workflows are prioritized across business functions. In this article, we'll explore how AWS Resource Manager fits into a scalable, secure, and efficient data lake architecture --- with dedicated support for both analytics and data science teams.
 
 
 ### Understanding the Architecture: From Edge to Insight
 This architecture begins where data is born --- at the edge of manufacturing operations --- and extends through to high-level insight generation. Data flows from IoT devices and plant systems into a centralized data lake account. Here, it is cataloged, governed, and made available for consumption by different workloads.
 
-At the center of this process is **AWS Resource Manager**, coordinating resource access, compute distribution, and user workflows. It's not just a gatekeeper --- it's the conductor of your data infrastructure.
+At the center of this process is AWS Resource Manager, coordinating resource access, compute distribution, and user workflows. It's not just a gatekeeper --- it's the conductor of your data infrastructure.
 
 ### Key Components and How They Interact
 Let's break down the key modules of this system and how Resource Manager ties them together.
 
 ### 1. Enterprise Data Lake Account
-This is the system's core --- the vault where raw, semi-structured, and processed data resides. **Amazon S3** stores all raw and curated datasets, organized by lifecycle stage and business unit. **AWS Lake Formation** governs fine-grained access policies and enforces security compliance. **AWS Glue Data Catalog** maintains metadata across the lake --- table definitions, lineage, and access logs. **AWS Resource Manager** serves as a dynamic controller --- provisioning access, assigning resources, and routing workloads to the right services.
+This is the system's core --- the vault where raw, semi-structured, and processed data resides. Amazon S3 stores all raw and curated datasets, organized by lifecycle stage and business unit. AWS Lake Formation governs fine-grained access policies and enforces security compliance. AWS Glue Data Catalog maintains metadata across the lake --- table definitions, lineage, and access logs. AWS Resource Manager serves as a dynamic controller --- provisioning access, assigning resources, and routing workloads to the right services.
 
 This central lake supports both exploratory and operational data consumption across the enterprise.
 
@@ -31,7 +31,7 @@ This central lake supports both exploratory and operational data consumption acr
 The architecture supports two primary categories of data consumers: business analysts and data scientists. Each has distinct workflows, performance requirements, and governance needs.
 
 #### Workload 1: Analytics and Business Intelligence
-- **Flow:** Resource Manager → Relational DB → BI Tools
+- Flow: Resource Manager → Relational DB → BI Tools
 - Analysts access curated data through a relational interface (e.g., Amazon Redshift or RDS).
 - Visualizations are created using Amazon QuickSight or third-party tools like Tableau and Power BI.
 - Resource Manager handles concurrency, access control, and compute quotas.
@@ -39,7 +39,7 @@ The architecture supports two primary categories of data consumers: business ana
 This supports fast, repeatable queries and consistent KPIs across business units.
 
 #### Workload 2: Machine Learning and Data Science
-- **Flow:** Resource Manager → Relational DB → SageMaker & ML Studio
+- Flow: Resource Manager → Relational DB → SageMaker & ML Studio
 - Data scientists pull training data into local compute environments or SageMaker notebooks.
 - They develop and deploy models using historical and real-time data.
 - Resource Manager allocates burstable compute capacity and monitors resource usage across experiments.
@@ -77,21 +77,19 @@ Together, this layer ensures traceability, accountability, and operational secur
 ### Best Practices for Deploying Resource Manager
 Define Roles with Precision
 
-- Create **separate environments** for analysts and data scientists.
-- Apply **tag-based access control** to restrict users to specific data zones or compute resources.
-- Use **managed identities** for automated pipelines and batch jobs.
+- Create separate environments for analysts and data scientists.
+- Apply tag-based access control to restrict users to specific data zones or compute resources.
+- Use managed identities for automated pipelines and batch jobs.
 
-**Monitor and Optimize Resource Use**
+Monitor and Optimize Resource Use
+- Set usage quotas per user group or workload.
+- Monitor compute and storage usage with AWS Cost Explorer and CloudWatch Metrics.
+- Enable budgets and alerts to trigger action when spending approaches thresholds.
 
-- Set **usage quotas** per user group or workload.
-- Monitor compute and storage usage with **AWS Cost Explorer** and **CloudWatch Metrics**.
-- Enable **budgets and alerts** to trigger action when spending approaches thresholds.
-
-**Enforce Strong Governance**
-
+Enforce Strong Governance
 - Catalog every dataset with AWS Glue.
 - Implement row- and column-level permissions with Lake Formation.
-- Use **S3 access logs**, **Athena query history**, and **QuickSight audit logs** for oversight.
+- Use S3 access logs, Athena query history, and QuickSight audit logs for oversight.
 
 This enables freedom with accountability --- the foundation of secure innovation.
 
