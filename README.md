@@ -11,14 +11,7 @@ That's where AWS Resource Manager comes in. Acting as an orchestrator, it contro
 
 This architecture begins where data is born --- at the edge of manufacturing operations --- and extends through to high-level insight generation. Data flows from IoT devices and plant systems into a centralized data lake account. Here, it is cataloged, governed, and made available for consumption by different workloads.
 
-## About
 
-Place the code for this article in this repository.
-The original article export is saved as `article.md`.
-
-## Files
-
-Add your `.ipynb`, `.py`, `.yaml`, `.js`, `.ts`, or other project files here.
 
 ## Disclaimer
 
